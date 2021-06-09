@@ -19,7 +19,9 @@ class WeChat:
         #应用ID，在后台应用中获取
         self.AGENTID = 'XXX'  
         #接收者用户名,多个用户用|分割
-        self.TOUSER = "YueJing|LiFei"  
+        self.TOUSER = "@all"  
+        #接收部门ID，多个部门用|分割
+        self.TOPARTY="2"
 
     def send_message(self, Content):
     	#获取access_token
@@ -33,6 +35,7 @@ class WeChat:
         send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=' + access_token
         send_values = {
             "touser": self.TOUSER,
+            "toparty":self.TOPARTY,
             "msgtype": "text",
             "agentid": self.AGENTID,
             "text": {"content": Content},
