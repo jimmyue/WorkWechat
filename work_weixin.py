@@ -13,11 +13,11 @@ import datetime
 class WeChat:
     def __init__(self):
     	#企业ID，在管理后台获取
-        self.CORPID = 'ww402caf66f8c12721'  
+        self.CORPID = 'XXXX'  
         #自建应用的Secret，每个自建应用里都有单独的secret
-        self.CORPSECRET = 'Dyz8H4VRZEusRWkiWg37HSx7S6gdAFwe1UeH0h3Cg6Q'
+        self.CORPSECRET = 'XXXX'
         #应用ID，在后台应用中获取
-        self.AGENTID = '1000002'  
+        self.AGENTID = 'XXXX'  
         #接收者用户名,多个用户用|分割
         self.TOUSER = "@all"  
         #接收部门ID，多个部门用|分割
