@@ -40,19 +40,19 @@ class WeChat:
             #不存在access_token.txt则获取access_token生成
             if not os.path.exists('access_token.txt'):
                 self.get_token()
-            #循环获取有效access_token，直到发送消息
             result=1
-            while result != 0:
+            while result != 0: #循环获取有效access_token，直到发送请求
                 #读取access_token
                 fo = open('access_token.txt', "r+")
                 access_token = fo.read()
                 fo.close()
-                #发送消息
+                #发送请求
                 upload_url = "https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token={}&type={}".format(access_token,filetype)
                 files = {filetype: open(filepath, 'rb')}
                 respone = requests.post(upload_url, files=files).json()
                 result=respone["errcode"]
                 if result == 0:
+                    print('上传临时素材成功！ media_id:',respone['media_id'])
                     break
                 #获取新的access_token
                 self.get_token()
@@ -66,14 +66,13 @@ class WeChat:
             #不存在access_token.txt则获取access_token生成
             if not os.path.exists('access_token.txt'):
                 self.get_token()
-            #循环获取有效access_token，直到发送消息
             result=1
-            while result != 0:
+            while result != 0: #循环获取有效access_token，直到发送请求
                 #读取access_token
                 fo = open('access_token.txt', "r+")
                 access_token = fo.read()
                 fo.close()
-                #发送消息
+                #发送请求
                 send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=' + access_token
                 send_values = {
                     "touser": self.TOUSER,
@@ -86,6 +85,7 @@ class WeChat:
                 respone = requests.post(send_url,send_msges).json() 
                 result=respone["errcode"]
                 if result == 0:
+                    print('文本消息发送成功！')
                     break
                 #获取新的access_token
                 self.get_token()
@@ -97,14 +97,13 @@ class WeChat:
             #不存在access_token.txt则获取access_token生成
             if not os.path.exists('access_token.txt'):
                 self.get_token()
-            #循环获取有效access_token，直到发送消息
             result=1
-            while result != 0:
+            while result != 0: #循环获取有效access_token，直到发送请求
                 #读取access_token
                 fo = open('access_token.txt', "r+")
                 access_token = fo.read()
                 fo.close()
-                #发送消息
+                #发送请求
                 send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=' + access_token
                 send_values = {
                     "touser": self.TOUSER,
@@ -117,6 +116,7 @@ class WeChat:
                 respone = requests.post(send_url,send_msges).json() 
                 result=respone["errcode"]
                 if result == 0:
+                    print('图片消息发送成功！')
                     break
                 #获取新的access_token
                 self.get_token()
@@ -128,14 +128,13 @@ class WeChat:
             #不存在access_token.txt则获取access_token生成
             if not os.path.exists('access_token.txt'):
                 self.get_token()
-            #循环获取有效access_token，直到发送消息
             result=1
-            while result != 0:
+            while result != 0: #循环获取有效access_token，直到发送请求
                 #读取access_token
                 fo = open('access_token.txt', "r+")
                 access_token = fo.read()
                 fo.close()
-                #发送消息
+                #发送请求
                 send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=' + access_token
                 send_values = {
                     "touser": self.TOUSER,
@@ -158,6 +157,7 @@ class WeChat:
                 respone = requests.post(send_url,send_msges).json() 
                 result=respone["errcode"]
                 if result == 0:
+                    print('图文消息发送成功！')
                     break
                 #获取新的access_token
                 self.get_token()
