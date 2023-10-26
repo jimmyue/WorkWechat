@@ -35,7 +35,7 @@ class WeChat:
         fo.write(access_token)
         fo.close()
     #企业微信接口 https://developer.work.weixin.qq.com/document/path/90253
-    def upload_media(self,filetype,path):
+    def upload_media(self,filetype='image',path):
         try:
             #不存在access_token.txt则获取access_token生成
             if not os.path.exists('access_token.txt'):
