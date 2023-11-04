@@ -176,7 +176,7 @@ def run_compare():
 	if result==str(today):
 		#微信提醒
 		wx = WeChat()
-		wx.send_text("【姨妈提醒】\n宝宝，明天要大姨妈了，注意防护呀，爱你~")
+		wx.send_text("【提醒标题】\n提醒内容")
 		#插入时间
 		cur.execute("insert into weixin select null,'MC',SYSDATE()+INTERVAL 1 DAY")
 		conn.commit()
